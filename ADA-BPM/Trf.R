@@ -1,0 +1,9 @@
+Trf<-function(M){
+  p=nrow(M);
+  s=sum(M);
+  v=colSums(M);
+  v<-t(v);
+  Mv=matrix(rep(v,each=p),nrow=p,byrow=TRUE);
+  C=M-Mv/p-t(Mv)/p+p^(-2)*s*matrix(1,p,p);
+  return(C)
+}
